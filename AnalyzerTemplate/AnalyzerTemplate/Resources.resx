@@ -117,16 +117,28 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="AnalyzerDescription" xml:space="preserve">
-    <value>Type names should be all uppercase.</value>
-    <comment>An optional longer localizable description of the diagnostic.</comment>
+  <data name="MagicNumbersAnalyzerDescription" xml:space="preserve">
+    <value>All numbers should be defined in constants</value>
+    <comment>An optional longer localizable description of the diagnostic</comment>
   </data>
-  <data name="AnalyzerMessageFormat" xml:space="preserve">
-    <value>Type name '{0}' contains lowercase letters</value>
-    <comment>The format-able message the diagnostic displays.</comment>
+  <data name="MagicNumbersAnalyzerMessageFormat" xml:space="preserve">
+    <value>{0} is a magic number</value>
+    <comment>The format-able message the diagnostic displays</comment>
   </data>
-  <data name="AnalyzerTitle" xml:space="preserve">
-    <value>Type name contains lowercase letters</value>
-    <comment>The title of the diagnostic.</comment>
+  <data name="MagicNumbersAnalyzerTitle" xml:space="preserve">
+    <value>It's a magic number</value>
+    <comment>The title of the diagnostic</comment>
+  </data>
+  <data name="UselessBackingFieldsAnalyzerDescription" xml:space="preserve">
+    <value>Backing field and get-only property combination can be transformed to auto-property</value>
+    <comment>An optional longer localizable description of the diagnostic</comment>
+  </data>
+  <data name="UselessBackingFieldsAnalyzerMessageFormat" xml:space="preserve">
+    <value>{0} is a backing field for get-only property {1}</value>
+    <comment>The format-able message the diagnostic displays</comment>
+  </data>
+  <data name="UselessBackingFieldsAnalyzerTitle" xml:space="preserve">
+    <value>It's a backing field for get-only property</value>
+    <comment>The title of the diagnostic</comment>
   </data>
 </root>

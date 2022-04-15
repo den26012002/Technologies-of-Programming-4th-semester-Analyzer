@@ -117,8 +117,12 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="CodeFixTitle" xml:space="preserve">
-    <value>Make uppercase</value>
-    <comment>The title of the code fix.</comment>
+  <data name="MagicNumbersFixTitle" xml:space="preserve">
+    <value>Make a constant field</value>
+    <comment>The title of the code fix</comment>
+  </data>
+  <data name="UselessBackingFieldsFixTitle" xml:space="preserve">
+    <value>Make an auto-property</value>
+    <comment>The title of the code fix</comment>
   </data>
 </root>

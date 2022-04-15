@@ -41,7 +41,7 @@ namespace AnalyzerTemplate
             context.EnableConcurrentExecution();
 
             context.RegisterSyntaxTreeAction(AnalyzeMagicNumbers);
-            context.RegisterSemanticModelAction(Analyze);
+            context.RegisterSemanticModelAction(AnalyzeUselessBackingFields);
         }
 
         private static void AnalyzeMagicNumbers(SyntaxTreeAnalysisContext context)
@@ -112,7 +112,7 @@ namespace AnalyzerTemplate
             return ans;
         }
 
-        private static void Analyze(SemanticModelAnalysisContext context)
+        private static void AnalyzeUselessBackingFields(SemanticModelAnalysisContext context)
         {
             var root = context.SemanticModel.SyntaxTree.GetRoot();
             

@@ -62,9 +62,9 @@ namespace AnalyzerTemplate
 
         private async Task<Document> ChangeNumberAsync(Document document, Diagnostic diagnostic, SyntaxNode root)
         {
-            var statement = root.FindNode(diagnostic.Location.SourceSpan);
+            var statement = root.FindNode(diagnostic.Location.SourceSpan).DescendantNodesAndSelf().FirstOrDefault(x => x.IsKind(SyntaxKind.NumericLiteralExpression));
             var firstMethodOrPropertyDeclaration = root.DescendantNodes().FirstOrDefault(node => node.IsKind(SyntaxKind.MethodDeclaration) || node.IsKind(SyntaxKind.PropertyDeclaration));
-            var newFieldValue = statement.ChildTokens().First().Text;
+            var newFieldValue = statement.DescendantTokens().First().Text;
             var newFieldName = "_magicNumber" + diagnostic.Properties["MagicNumberCount"];
             var newFieldDeclaration = SyntaxFactory.FieldDeclaration(
                 SyntaxFactory.VariableDeclaration(SyntaxFactory.ParseTypeName("int"))
@@ -102,7 +102,7 @@ namespace AnalyzerTemplate
                 .NormalizeWhitespace()
                 .AddAccessorListAccessors(
                     SyntaxFactory.AccessorDeclaration(SyntaxKind.GetAccessorDeclaration).WithSemicolonToken(SyntaxFactory.Token(SyntaxKind.SemicolonToken)),
-                    SyntaxFactory.AccessorDeclaration(SyntaxKind.SetAccessorDeclaration).WithSemicolonToken(SyntaxFactory.Token(SyntaxKind.SemicolonToken)))
+                    SyntaxFactory.AccessorDeclaration(SyntaxKind.SetAccessorDeclaration).AddModifiers(SyntaxFactory.Token(SyntaxKind.PrivateKeyword)).WithSemicolonToken(SyntaxFactory.Token(SyntaxKind.SemicolonToken)))
                 .WithLeadingTrivia(propertyLocation.SourceTree.GetRoot().FindNode(propertyLocation.SourceSpan).GetLeadingTrivia())
                 .WithTrailingTrivia(propertyLocation.SourceTree.GetRoot().FindNode(propertyLocation.SourceSpan).GetTrailingTrivia());
 
